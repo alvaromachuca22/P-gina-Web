@@ -98,9 +98,20 @@
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+            <br><br>
+            <img src="assets/img/3.jpg" class="img-fluid" alt="">
+            <br><br>
+            <br><br>
+            <img src="assets/img/2.jpg" class="img-fluid" alt="">
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
             <img src="assets/img/metod.png" class="img-fluid" alt="">
             <br><br>
-            <a href="assets/pdf/1.pdf" class="btn-get-started scrollto" target ="_blank">Visualizar artículo completo</a>
+            <a href="assets/pdf/1.pdf" class="btn-get-started scrollto" style="text-align: center" target ="_blank">Visualizar artículo completo </a>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
             <h3>Introducción</h3>
@@ -117,6 +128,15 @@
             <p class="font-italic" style="text-align: justify">
               En el presente proyecto se utiliza la técnica de LDA para la detección de tópicos de tweets recolectados de twitter usando hashtags relacionados al coronavirus en el país de Perú. Además, se utiliza una técnica de análisis de sentimientos para la clasificación de los tweets en positivos o negativos. Para la elección de la técnica de análisis de sentimiento a usar, se hace una comparación de tres modelos: 1 modelo de machine learning, 1 modelo de deep learning y un modelo que combine los dos anteriores. Se evaluarán los 3 modelos utilizando el Acuracy, Precision, Recall y F1-score con el objetivo de determinar qué modelo es el más adecuado para realizar el análisis de sentimiento. 
             </p>
+
+
+            <h3>Metodología - Recolección de datos </h3>
+            <p class="font-italic" style="text-align: justify">
+              
+              Para la extracción de la data se necesitó contar con una cuenta de desarrollador para usar la API de twitter. Una vez creada la cuenta, se procedió a crear una nueva Twitter Application. Al momento de la creación de nuestra nueva app, se nos otorga principalmente valores para 4 principales campos que son el consumer key, cosumer secret key, access token y el access token secret. Estos 4 campos con sus respectivos valores, servirán de autentificación para poder conectarnos a twitter y poder extraer los tweets más adelante. Posteriormente, se procedió a instalar R junto con R studio versión 1.2.1335 para poder realizar la extracción. Las librerías que se utilizaron fueron "twitterR" para la extracción de los datos , "rtweet" para activar la extracción por zonas específicas y "readr"  para la exportación e importacion de archivos. Se procedió a importar las 3 librerías y se proceció a crear 4 variables llamadas api_key, api_secret_key, access_token y access_token_secret en donde cada una almacenaba el valor proporcionado por la aplicación de twitter cuando se creó. Luego, para la autentificación, se utilizó la función setup_twitter_oauth() proporcinada por la librería "twitterR" y dentro de esta función se agregaron las 4 variables mensionadas. Para la extracción de los tweets, se creó una variable llamada "tweets" que almacenaria todos los tweets que se iban extrayendo. La función searchTwitter, permitió hacer la conexión por twitter para realizar la extracción. Además, hubieron otros argumentos que intervinieron en la función de extracción. El primer argumento para la extracción es la propia palabra o hashtag que se desea extraer, como segundo argumento esta la función lookup_coords en donde dentro de esta función proporcionada por la librería "rtweet" se introducía el pais del cual se deseaba hacer la extracción que en este caso es solamente de perú. El siguiente argumento es el n que viene a ser la cantidad de tweets que se desea extraer. Seguidamente, se encuentra el argumento "lang" que es el idioma con el cual se desea que tengan los tweets. En este caso esta variable lleva el valor de "es" porque los tweets serán extraidos en el idioma español. Finalmente están los parámetros de "since" y "until" en donde se introduce desde qué fecha a qué fecha se desea hacer la extracción. Es preciso mensionar que la API de twitter permite hacer la extracción solamente de los 7 últimos días, por lo que se hizo la extracción de manera díaria de 20000 en 20000 tweets utilizando hashtags relacionados al coronavirus como "covid-19", "vacuna", "bono", "QuedateEnCasa" entre otros. Una vez extraidos los tweets, se procedió a convertir los resultados en dataframe con la función twListToDF y almacenado en una nueva variable. Finalmente, con la función write_csv proporcionada por la librería "readr", se exportó el dataframe a un archivo csv cuyo nombre del archivo era el nombre del hashtag con el cual se extrajo para un mejor manero de los archivos. En total, se recopilaron 137874 tweets por un periodo de 6 semanas  usando diversos hashtags relacionado a coronavirus en el Perú.
+              
+            </p>
+
             
             <!-- ======= Agregar Secciones al paper
             <ul>
@@ -290,3 +310,4 @@
 </body>
 
 </html>
+
